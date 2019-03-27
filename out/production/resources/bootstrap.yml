@@ -1,5 +1,0 @@
-spring:
-  application:
-    name: order-manager
-    author: pyx
-    description: 下单后台

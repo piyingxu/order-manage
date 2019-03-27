@@ -1,1 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
+.gradle/
+.idea/gradle.xml
+.idea/misc.xml
+.idea/uiDesigner.xml
+.idea/workspace.xml
+src/main/java/com/great/common/
+src/main/java/com/great/enums/
+src/main/java/com/great/service/
+src/test/
