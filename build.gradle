@@ -81,4 +81,6 @@ dependencies {
 
     compile 'org.apache.commons:commons-lang3:3.6'
 
+    compile 'com.github.pagehelper:pagehelper:4.1.3'
+
 }

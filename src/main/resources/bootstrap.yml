@@ -11,3 +11,12 @@ datasource:
   password: 123456
 mybatis:
   mapper-locations: classpath:orm/*.xml
+
+#pagehelper分页插件
+pagehelper.helper-dialect: "mysql"
+pagehelper.params: "count=countSql"
+pagehelper.reasonable: false
+pagehelper.support-methods-arguments: true
+mapper.identity: "MYSQL"
+
+logRootPath: E:/logs
