@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.great.dao.CompensateOrderMapper">
+  <resultMap id="BaseResultMap" type="com.great.model.CompensateOrder">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+    <result column="role" jdbcType="BIT" property="role" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, username, pwd, role, status, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_user_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.great.model.CompensateOrder">
+    insert into t_user_info (id, username, pwd, 
+      role, status, create_time, 
+      update_time)
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
+      #{role,jdbcType=BIT}, #{status,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.great.model.CompensateOrder">
+    insert into t_user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="pwd != null">
+        pwd,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null">
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.great.model.CompensateOrder">
+    update t_user_info
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null">
+        pwd = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        role = #{role,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.great.model.CompensateOrder">
+    update t_user_info
+    set username = #{username,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR},
+      role = #{role,jdbcType=BIT},
+      status = #{status,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.great.model.CompensateOrder">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="source_order_no" jdbcType="VARCHAR" property="sourceOrderNo" />
+    <result column="pay_id" jdbcType="VARCHAR" property="payId" />
+    <result column="business_amount" jdbcType="BIGINT" property="businessAmount" />
+    <result column="payer_member_id" jdbcType="VARCHAR" property="payerMemberId" />
+    <result column="payer_account_id" jdbcType="VARCHAR" property="payerAccountId" />
+    <result column="payer_account_type" jdbcType="INTEGER" property="payerAccountType" />
+    <result column="payee_member_id" jdbcType="VARCHAR" property="payeeMemberId" />
+    <result column="payee_account_id" jdbcType="VARCHAR" property="payeeAccountId" />
+    <result column="payee_bank_code" jdbcType="VARCHAR" property="payeeBankCode" />
+    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
+    <result column="pay_type" jdbcType="INTEGER" property="payType" />
+    <result column="currency" jdbcType="VARCHAR" property="currency" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, order_no, source_order_no, pay_id, business_amount, payer_member_id, payer_account_id, 
+    payer_account_type, payee_member_id, payee_account_id, payee_bank_code, order_status, 
+    pay_type, currency, remark, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_compensate_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_compensate_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.great.model.CompensateOrder">
+    insert into t_compensate_order (id, order_no, source_order_no, 
+      pay_id, business_amount, payer_member_id, 
+      payer_account_id, payer_account_type, payee_member_id, 
+      payee_account_id, payee_bank_code, order_status, 
+      pay_type, currency, remark, 
+      create_time, update_time)
+    values (#{id,jdbcType=BIGINT}, #{orderNo,jdbcType=VARCHAR}, #{sourceOrderNo,jdbcType=VARCHAR}, 
+      #{payId,jdbcType=VARCHAR}, #{businessAmount,jdbcType=BIGINT}, #{payerMemberId,jdbcType=VARCHAR}, 
+      #{payerAccountId,jdbcType=VARCHAR}, #{payerAccountType,jdbcType=INTEGER}, #{payeeMemberId,jdbcType=VARCHAR}, 
+      #{payeeAccountId,jdbcType=VARCHAR}, #{payeeBankCode,jdbcType=VARCHAR}, #{orderStatus,jdbcType=INTEGER}, 
+      #{payType,jdbcType=INTEGER}, #{currency,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.great.model.CompensateOrder">
+    insert into t_compensate_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="sourceOrderNo != null">
+        source_order_no,
+      </if>
+      <if test="payId != null">
+        pay_id,
+      </if>
+      <if test="businessAmount != null">
+        business_amount,
+      </if>
+      <if test="payerMemberId != null">
+        payer_member_id,
+      </if>
+      <if test="payerAccountId != null">
+        payer_account_id,
+      </if>
+      <if test="payerAccountType != null">
+        payer_account_type,
+      </if>
+      <if test="payeeMemberId != null">
+        payee_member_id,
+      </if>
+      <if test="payeeAccountId != null">
+        payee_account_id,
+      </if>
+      <if test="payeeBankCode != null">
+        payee_bank_code,
+      </if>
+      <if test="orderStatus != null">
+        order_status,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="currency != null">
+        currency,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceOrderNo != null">
+        #{sourceOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payId != null">
+        #{payId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessAmount != null">
+        #{businessAmount,jdbcType=BIGINT},
+      </if>
+      <if test="payerMemberId != null">
+        #{payerMemberId,jdbcType=VARCHAR},
+      </if>
+      <if test="payerAccountId != null">
+        #{payerAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="payerAccountType != null">
+        #{payerAccountType,jdbcType=INTEGER},
+      </if>
+      <if test="payeeMemberId != null">
+        #{payeeMemberId,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAccountId != null">
+        #{payeeAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCode != null">
+        #{payeeBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.great.model.CompensateOrder">
+    update t_compensate_order
+    <set>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceOrderNo != null">
+        source_order_no = #{sourceOrderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payId != null">
+        pay_id = #{payId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessAmount != null">
+        business_amount = #{businessAmount,jdbcType=BIGINT},
+      </if>
+      <if test="payerMemberId != null">
+        payer_member_id = #{payerMemberId,jdbcType=VARCHAR},
+      </if>
+      <if test="payerAccountId != null">
+        payer_account_id = #{payerAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="payerAccountType != null">
+        payer_account_type = #{payerAccountType,jdbcType=INTEGER},
+      </if>
+      <if test="payeeMemberId != null">
+        payee_member_id = #{payeeMemberId,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAccountId != null">
+        payee_account_id = #{payeeAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBankCode != null">
+        payee_bank_code = #{payeeBankCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null">
+        order_status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="currency != null">
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.great.model.CompensateOrder">
+    update t_compensate_order
+    set order_no = #{orderNo,jdbcType=VARCHAR},
+      source_order_no = #{sourceOrderNo,jdbcType=VARCHAR},
+      pay_id = #{payId,jdbcType=VARCHAR},
+      business_amount = #{businessAmount,jdbcType=BIGINT},
+      payer_member_id = #{payerMemberId,jdbcType=VARCHAR},
+      payer_account_id = #{payerAccountId,jdbcType=VARCHAR},
+      payer_account_type = #{payerAccountType,jdbcType=INTEGER},
+      payee_member_id = #{payeeMemberId,jdbcType=VARCHAR},
+      payee_account_id = #{payeeAccountId,jdbcType=VARCHAR},
+      payee_bank_code = #{payeeBankCode,jdbcType=VARCHAR},
+      order_status = #{orderStatus,jdbcType=INTEGER},
+      pay_type = #{payType,jdbcType=INTEGER},
+      currency = #{currency,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
