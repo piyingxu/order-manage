@@ -9,3 +9,4 @@ src/main/java/com/great/enums/
 src/main/java/com/great/service/
 src/test/
 out/
+logPath_IS_UNDEFINED/
