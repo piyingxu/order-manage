@@ -2,14 +2,15 @@ package com.great.dto.base;
 
 import java.io.Serializable;
 import com.alibaba.fastjson.JSONObject;
+import com.great.util.GsonUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class BaseEntity implements Serializable {
-	
+
     @Override
     public String toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.JSON_STYLE);
+        return GsonUtils.fromObject2Json(this);
     }
 
     @Override
@@ -19,9 +20,6 @@ public class BaseEntity implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-    	if (obj == null) {
-    		return false;
-    	}
         return this.toString().equals(obj.toString());
     }
 }
