@@ -8,7 +8,7 @@
     <result column="dish_price" property="dishPrice" jdbcType="DECIMAL" />
     <result column="dish_description" property="dishDescription" jdbcType="VARCHAR" />
     <result column="dish_icon" property="dishIcon" jdbcType="VARCHAR" />
-    <result column="dish_status" property="dishStatus" jdbcType="BIT" />
+    <result column="dish_status" property="dishStatus" jdbcType="INTEGER" />
     <result column="dish_stock" property="dishStock" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />

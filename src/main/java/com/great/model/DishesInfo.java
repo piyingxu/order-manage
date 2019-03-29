@@ -28,7 +28,7 @@ public class DishesInfo implements Serializable {
     private String dishIcon;
 
     @ApiModelProperty(value = "菜品状态,0正常1下架", example = "1")
-    private Boolean dishStatus;
+    private Integer dishStatus;
 
     @ApiModelProperty(value = "库存", example = "100")
     private Integer dishStock;
@@ -87,11 +87,11 @@ public class DishesInfo implements Serializable {
         this.dishIcon = dishIcon == null ? null : dishIcon.trim();
     }
 
-    public Boolean getDishStatus() {
+    public Integer getDishStatus() {
         return dishStatus;
     }
 
-    public void setDishStatus(Boolean dishStatus) {
+    public void setDishStatus(Integer dishStatus) {
         this.dishStatus = dishStatus;
     }
 

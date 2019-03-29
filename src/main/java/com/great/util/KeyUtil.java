@@ -1,5 +1,7 @@
 package com.great.util;
 
+import jdk.internal.org.objectweb.asm.tree.MultiANewArrayInsnNode;
+
 import java.util.Random;
 
 /**
@@ -19,4 +21,5 @@ public class KeyUtil {
 
         return System.currentTimeMillis() + String.valueOf(number);
     }
+
 }
