@@ -1,5 +1,6 @@
 package com.great;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.client.SpringCloudApplication;
@@ -12,6 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableFeignClients
 @Configuration
 @ServletComponentScan
+@MapperScan("com.great.dao")
 public class ManageApplication {
 
     public static void main(String[] args) {

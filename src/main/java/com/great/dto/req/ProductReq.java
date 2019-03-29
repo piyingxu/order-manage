@@ -1,6 +1,8 @@
 package com.great.dto.req;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.great.dto.base.PageBaseParam;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.List;
@@ -11,14 +13,10 @@ import java.util.List;
  * 2019-03-28
  */
 @Data
-public class ProductReq {
+public class ProductReq extends PageBaseParam {
 
-    @JsonProperty("name")
-    private String categoryName;
+    private static final long serialVersionUID = 6486413067728884469L;
 
-    @JsonProperty("type")
-    private Integer categoryType;
-
-    @JsonProperty("foods")
-    private List<ProductInfoReq> productInfoReqList;
+    @ApiModelProperty(value = "商户id", example = "7866619", required = true)
+    private String merchantId;
 }

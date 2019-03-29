@@ -1,5 +1,9 @@
 package com.great.service;
 
+import com.great.dto.base.PageDto;
+import com.great.dto.base.RespResult;
+import com.great.dto.req.ProductReq;
+import com.great.dto.res.ProductRes;
 import com.great.model.DishesInfo;
 
 import java.util.List;
@@ -7,7 +11,7 @@ import java.util.List;
 /**
  * @author yinqi
  * @date 2019/3/27
- * 商品
+ * 商品(菜品)
  */
 public interface ProductService {
 
@@ -19,7 +23,11 @@ public interface ProductService {
      */
     List<DishesInfo> findUpAll();
 
-    //Page<ProductInfo> findAll(Pageable pageable);
+    /**
+     * 分页查询所有在架商品列表（菜品）
+     * @return
+     */
+    RespResult<PageDto<ProductRes>> queryProductList(ProductReq req);
 
     DishesInfo save(DishesInfo productInfo);
 

@@ -1,24 +1,36 @@
 package com.great.model;
 
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class DishesInfo implements Serializable {
+
+    @ApiModelProperty(value = "菜品id", example = "2312321")
     private String id;
 
+    @ApiModelProperty(value = "商户id", example = "2312321")
     private String merchantId;
 
+    @ApiModelProperty(value = "菜名", example = "红烧排骨")
     private String dishName;
 
+    @ApiModelProperty(value = "菜价", example = "80")
     private BigDecimal dishPrice;
 
+    @ApiModelProperty(value = "菜品描述", example = "酸辣")
     private String dishDescription;
 
+    @ApiModelProperty(value = "图片地址", example = "http://xxx.jpg")
     private String dishIcon;
 
+    @ApiModelProperty(value = "菜品状态,0正常1下架", example = "1")
     private Boolean dishStatus;
 
+    @ApiModelProperty(value = "库存", example = "100")
     private Integer dishStock;
 
     private Date createTime;
