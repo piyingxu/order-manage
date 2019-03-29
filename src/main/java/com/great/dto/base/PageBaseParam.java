@@ -5,37 +5,36 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
- * @author yinqi
- * @date 2019/3/28
+ * @author: yingxu.pi@transsnet.com
+ * @date: 2019/3/28 17:42
  */
 public class PageBaseParam extends BaseEntity {
-
     /**
      * 要查询的页面数
      */
     @ApiModelProperty(value = "查询页面",example = "1" )
-    private int pageNum = 1;
+    private int page = 1;
 
     /**
      * 页面数据大小
      */
     @ApiModelProperty(value = "单页数据大小",example = "10")
-    private int pageSize = 10;
+    private int limit = 10;
 
-    public int getPageNum() {
-        return pageNum;
+    public int getPage() {
+        return page;
     }
 
-    public void setPageNum(int pageNum) {
-        this.pageNum = pageNum;
+    public void setPage(int page) {
+        this.page = page;
     }
 
-    public int getPageSize() {
-        return pageSize;
+    public int getLimit() {
+        return limit;
     }
 
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
 
     @Override

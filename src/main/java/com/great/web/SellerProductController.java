@@ -2,9 +2,8 @@ package com.great.web;
 
 import com.great.dto.base.PageDto;
 import com.great.dto.base.RespResult;
-import com.great.dto.base.RespUtil;
 import com.great.dto.req.ProductReq;
-import com.great.dto.res.ProductRes;
+import com.great.model.DishesInfo;
 import com.great.service.ProductService;
 import com.great.util.Log;
 import io.swagger.annotations.Api;
@@ -32,20 +31,17 @@ public class SellerProductController {
     private ProductService productService;
 
     /**
+     * @return com.great.dto.base.RespResult<java.lang.String>
      * @Author yinqi
      * @Description
      * @Date 10:44 2019/3/28
      * @Param [req]
-     *
-     * @return com.great.dto.base.RespResult<java.lang.String>
      **/
     @ApiOperation("1、商品(菜品)列表")
     @Log
     @PostMapping("/list")
-    public RespResult<PageDto<ProductRes>> queryProductList(@RequestBody  ProductReq productReq) {
-
-        //return  RespUtil.success("success");
-        return null;
+    public RespResult<PageDto<DishesInfo>> queryProductList(@RequestBody ProductReq productReq) {
+        return productService.queryProductList(productReq);
     }
 
 }

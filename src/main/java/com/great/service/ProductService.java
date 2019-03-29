@@ -27,7 +27,7 @@ public interface ProductService {
      * 分页查询所有在架商品列表（菜品）
      * @return
      */
-    RespResult<PageDto<ProductRes>> queryProductList(ProductReq req);
+    RespResult<PageDto<DishesInfo>> queryProductList(ProductReq req);
 
     DishesInfo save(DishesInfo productInfo);
 

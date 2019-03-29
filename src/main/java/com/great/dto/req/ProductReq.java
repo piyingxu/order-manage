@@ -19,4 +19,23 @@ public class ProductReq extends PageBaseParam {
 
     @ApiModelProperty(value = "商户id", example = "7866619", required = true)
     private String merchantId;
+
+    @ApiModelProperty(value = "菜名", example = "红烧排骨")
+    private String dishName;
+
+    public String getMerchantId() {
+        return merchantId;
+    }
+
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
+    }
+
+    public String getDishName() {
+        return dishName;
+    }
+
+    public void setDishName(String dishName) {
+        this.dishName = dishName;
+    }
 }
