@@ -31,6 +31,7 @@ drop table if exists t_dishes_info;
 CREATE TABLE `t_dishes_info` (
   `id` varchar(32) NOT NULL,
   `merchant_id` varchar(32) NOT NULL COMMENT '关联商铺id',
+  `category_name` varchar(64) NOT NULL COMMENT '分类名称',
   `dish_name` varchar(64) NOT NULL COMMENT '菜名',
   `dish_price` decimal(8,2) DEFAULT NULL COMMENT '菜价',
   `dish_description` varchar(64) DEFAULT NULL COMMENT '描述',
