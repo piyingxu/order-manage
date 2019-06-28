@@ -1,8 +1,12 @@
 package com.great.dao;
 
 import com.great.model.OrderMaster;
+import com.great.model.OrderSell;
+
+import java.util.List;
 
 public interface OrderMasterMapper {
+
     int deleteByPrimaryKey(String id);
 
     int insert(OrderMaster record);
@@ -14,4 +18,6 @@ public interface OrderMasterMapper {
     int updateByPrimaryKeySelective(OrderMaster record);
 
     int updateByPrimaryKey(OrderMaster record);
+
+    List<OrderSell> selectByOrderSell(String merchantId);
 }
